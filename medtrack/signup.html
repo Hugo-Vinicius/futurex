@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedTrack - Cadastros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -37,8 +38,10 @@
                 <textarea id="patient-allergies" rows="3" placeholder="Liste alergias conhecidas"></textarea>
             </div>
             
-            <button onclick="savePatient()">Salvar Paciente</button>
-            <button class="secondary" onclick="clearPatientForm()">Limpar</button>
+            <div class="button-group">
+                <button onclick="savePatient()">Salvar Paciente</button>
+                <button class="secondary" onclick="clearPatientForm()">Limpar</button>
+            </div>
         </div>
         
         <div class="card">
@@ -57,15 +60,17 @@
             <div class="form-group">
                 <label for="professional-role">Função:</label>
                 <select id="professional-role">
+                    <option value="">Selecione...</option>
                     <option value="nurse">Enfermeiro(a)</option>
-                    <option value="pharmacist">Farmacêutico</option>
-                    <option value="doctor">Médico</option>
+                    <option value="pharmacist">Farmacêutico(a)</option>
+                    <option value="doctor">Médico(a)</option>
                 </select>
             </div>
             
             <div class="form-group">
                 <label for="professional-sector">Setor:</label>
                 <select id="professional-sector">
+                    <option value="">Selecione...</option>
                     <option value="pharmacy">Farmácia</option>
                     <option value="ward">Enfermaria</option>
                     <option value="icu">UTI</option>
@@ -74,8 +79,8 @@
             </div>
             
             <div class="form-group">
-                <label for="professional-username">Usuário:</label>
-                <input type="text" id="professional-username" placeholder="Nome de acesso">
+                <label for="professional-email">E-mail:</label>
+                <input type="email" id="professional-email" placeholder="E-mail profissional">
             </div>
             
             <div class="form-group">
@@ -83,8 +88,10 @@
                 <input type="password" id="professional-password" placeholder="Mínimo 6 caracteres">
             </div>
             
-            <button onclick="saveProfessional()">Salvar Profissional</button>
-            <button class="secondary" onclick="clearProfessionalForm()">Limpar</button>
+            <div class="button-group">
+                <button onclick="saveProfessional()">Salvar Profissional</button>
+                <button class="secondary" onclick="clearProfessionalForm()">Limpar</button>
+            </div>
         </div>
     </div>
 
