@@ -45,6 +45,174 @@ header nav a.active {
     margin-bottom: 20px;
 }
 
+/* ===== LOGIN ===== */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--light-gray);
+    padding: 20px;
+}
+
+.login-card {
+    background-color: var(--secondary);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(12, 25, 100, 0.15);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header .logo {
+    margin-bottom: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(12, 25, 100, 0.2);
+}
+
+.login-header h1 {
+    color: var(--primary);
+    margin: 10px 0 5px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.tagline {
+    color: var(--text);
+    opacity: 0.8;
+    font-size: 14px;
+    margin: 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.login-form label {
+    font-size: 14px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.login-form input {
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.login-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(12, 25, 100, 0.1);
+    outline: none;
+}
+
+.login-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #0a1252;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(12, 25, 100, 0.2);
+}
+
+.forgot-password {
+    text-align: right;
+    font-size: 13px;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.register-link {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+.role-badge {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge.pharmacy {
+    background-color: rgba(12, 25, 100, 0.1);
+    color: var(--primary);
+}
+
+.badge.nursing {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+    
+    .login-header h1 {
+        font-size: 24px;
+    }
+}
+
+/* === FIM DE LOGIN === */
+
 /* Estilos para formulários e tabelas (como no exemplo anterior) */
 
 /* Adicione ao final do seu arquivo CSS existente */

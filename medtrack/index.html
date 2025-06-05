@@ -5,23 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedTrack - Login</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
-        <h1>MedTrack</h1>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="username">Usuário:</label>
-                <input type="text" id="username" required>
+        <div class="login-card">
+            <div class="login-header">
+                <img src="" alt="MedTrack Logo" class="logo">
+                <h1>MedTrack</h1>
+                <p class="tagline">Rastreabilidade que salva vidas</p>
             </div>
-            <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password" required>
-            </div>
-            <button type="submit">Entrar</button>
-            <p>Não tem conta? <a href="register.html">Registre-se</a></p>
-        </form>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" placeholder="Digite seu CRF ou COREN" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="login-button">Acessar Sistema</button>
+                
+                <div class="login-footer">
+                    <p>Não tem conta? <a href="register.html" class="register-link">Solicite acesso</a></p>
+                    <div class="role-badge">
+                        <span class="badge pharmacy">Farmácia</span>
+                        <span class="badge nursing">Enfermagem</span>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <script src="js/auth.js"></script>
+      <script src="js/auth.js"></script>
 </body>
 </html>
+   
