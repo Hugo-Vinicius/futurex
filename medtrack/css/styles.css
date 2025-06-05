@@ -1,0 +1,121 @@
+:root {
+    --primary: #0c1964;
+    --secondary: #FFFFFF;
+    --text: #333333;
+    --light-gray: #F5F5F5;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: var(--light-gray);
+}
+
+header {
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    color: var(--secondary);
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+}
+
+header nav a.active {
+    border-bottom: 2px solid var(--secondary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: var(--secondary);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para formulários e tabelas (como no exemplo anterior) */
+
+/* Adicione ao final do seu arquivo CSS existente */
+
+/* Estilos específicos para a tela de Histórico */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filters .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-button {
+    align-self: flex-end;
+    margin-bottom: 15px;
+}
+
+/* Estilos para os formulários de cadastro */
+.secondary {
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+/* Melhorias para mobile */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+}
+
+/* Adicione ao seu styles.css */
+.status {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-pending {
+    background-color: #FFC107;
+    color: #000;
+}
+
+.status-delayed {
+    background-color: #FF5722;
+    color: white;
+}
+
+.status-scheduled {
+    background-color: #2196F3;
+    color: white;
+}
+
+.status-administered {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#pending-meds button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}

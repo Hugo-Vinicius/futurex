@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrack - Cadastros</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>MedTrack</h1>
+        <nav>
+            <a href="pharmacy.html">Farmácia</a>
+            <a href="bed.html">Leito</a>
+            <a href="records.html">Histórico</a>
+            <a href="signup.html" class="active">Cadastros</a>
+            <a href="index.html">Sair</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Cadastro de Paciente</h2>
+            
+            <div class="form-group">
+                <label for="patient-name">Nome Completo:</label>
+                <input type="text" id="patient-name" placeholder="Ex: João Silva">
+            </div>
+            
+            <div class="form-group">
+                <label for="patient-bed">Leito:</label>
+                <input type="text" id="patient-bed" placeholder="Ex: Quarto 20 - Leito 01">
+            </div>
+            
+            <div class="form-group">
+                <label for="patient-allergies">Alergias/Restrições:</label>
+                <textarea id="patient-allergies" rows="3" placeholder="Liste alergias conhecidas"></textarea>
+            </div>
+            
+            <button onclick="savePatient()">Salvar Paciente</button>
+            <button class="secondary" onclick="clearPatientForm()">Limpar</button>
+        </div>
+        
+        <div class="card">
+            <h2>Cadastro de Profissional</h2>
+            
+            <div class="form-group">
+                <label for="professional-name">Nome Completo:</label>
+                <input type="text" id="professional-name" placeholder="Ex: Ana Souza">
+            </div>
+            
+            <div class="form-group">
+                <label for="professional-register">Registro (COREN/CRF):</label>
+                <input type="text" id="professional-register" placeholder="Número de registro">
+            </div>
+            
+            <div class="form-group">
+                <label for="professional-role">Função:</label>
+                <select id="professional-role">
+                    <option value="nurse">Enfermeiro(a)</option>
+                    <option value="pharmacist">Farmacêutico</option>
+                    <option value="doctor">Médico</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="professional-sector">Setor:</label>
+                <select id="professional-sector">
+                    <option value="pharmacy">Farmácia</option>
+                    <option value="ward">Enfermaria</option>
+                    <option value="icu">UTI</option>
+                    <option value="emergency">Emergência</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="professional-username">Usuário:</label>
+                <input type="text" id="professional-username" placeholder="Nome de acesso">
+            </div>
+            
+            <div class="form-group">
+                <label for="professional-password">Senha:</label>
+                <input type="password" id="professional-password" placeholder="Mínimo 6 caracteres">
+            </div>
+            
+            <button onclick="saveProfessional()">Salvar Profissional</button>
+            <button class="secondary" onclick="clearProfessionalForm()">Limpar</button>
+        </div>
+    </div>
+
+    <script src="js/signup.js"></script>
+</body>
+</html>

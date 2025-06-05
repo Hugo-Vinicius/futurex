@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrack - Registro</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="register-container">
+        <h1>Criar Conta</h1>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="reg-username">Usuário:</label>
+                <input type="text" id="reg-username" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-password">Senha:</label>
+                <input type="password" id="reg-password" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-role">Função:</label>
+                <select id="reg-role" required>
+                    <option value="nurse">Enfermeiro(a)</option>
+                    <option value="pharmacist">Farmacêutico</option>
+                </select>
+            </div>
+            <button type="submit">Registrar</button>
+            <p>Já tem conta? <a href="index.html">Faça login</a></p>
+        </form>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

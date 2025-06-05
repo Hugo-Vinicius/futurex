@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrack - Histórico</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>MedTrack</h1>
+        <nav>
+            <a href="pharmacy.html">Farmácia</a>
+            <a href="bed.html">Leito</a>
+            <a href="records.html" class="active">Histórico</a>
+            <a href="signup.html">Cadastros</a>
+            <a href="index.html">Sair</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Histórico de Administração</h2>
+            
+            <div class="filters">
+                <div class="form-group">
+                    <label for="filter-patient">Filtrar por Paciente:</label>
+                    <select id="filter-patient">
+                        <option value="">Todos</option>
+                        <option value="joao-silva">João Silva</option>
+                        <option value="beatriz-santos">Beatriz dos Santos</option>
+                        <option value="paulo-costa">Paulo Costa</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="filter-date">Filtrar por Data:</label>
+                    <input type="date" id="filter-date">
+                </div>
+                
+                <button onclick="applyFilters()" class="filter-button">Aplicar Filtros</button>
+            </div>
+            
+            <table id="records-table">
+                <thead>
+                    <tr>
+                        <th>Data/Hora</th>
+                        <th>Paciente</th>
+                        <th>Medicamento</th>
+                        <th>Leito</th>
+                        <th>Responsável</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Preenchido dinamicamente pelo records.js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/records.js"></script>
+</body>
+</html>
