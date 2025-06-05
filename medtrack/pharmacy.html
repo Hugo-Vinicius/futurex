@@ -15,7 +15,7 @@
             <a href="bed.html">Leito</a>
             <a href="records.html">Histórico</a>
             <a href="signup.html">Cadastros</a>
-            <a href="index.html">Sair</a>
+            <a href="#" onclick="logout()">Sair</a>
         </nav>
     </header>
 
@@ -46,40 +46,41 @@
             </table>
 
             <!-- Formulário de Saída -->
-            <div class="form-group">
-                <label for="selected-med">Medicamento Selecionado:</label>
-                <input type="text" id="selected-med" readonly>
-            </div>
+            <form id="exit-form" onsubmit="registerExit(); return false;">
+                <div class="form-group">
+                    <label for="selected-med">Medicamento Selecionado:</label>
+                    <input type="text" id="selected-med" readonly>
+                </div>
 
-            <div class="form-group">
-                <label for="bed-location">Destino:</label>
-                <select id="bed-location">
-                    <option value="">Selecione...</option>
-                    <option value="quarto-20-leito-01">Quarto 20 - Leito 01</option>
-                    <option value="quarto-20-leito-05">Quarto 20 - Leito 05</option>
-                    <option value="uti-leito-07">UTI - Leito 07</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="bed-location">Destino:</label>
+                    <select id="bed-location" required>
+                        <option value="">Selecione...</option>
+                        <option value="Quarto 201 - Leito 01">Quarto 201 - Leito 01</option>
+                        <option value="Quarto 202 - Leito 05">Quarto 202 - Leito 05</option>
+                        <option value="UTI - Leito 07">UTI - Leito 07</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="patient">Paciente:</label>
-                <select id="patient">
-                    <option value="">Selecione...</option>
-                    <option value="joao-silva">João Silva</option>
-                    <option value="beatriz-santos">Beatriz dos Santos</option>
-                    <option value="paulo-costa">Paulo Costa</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="patient">Paciente:</label>
+                    <select id="patient" data-type="patient" required>
+                        <option value="">Selecione...</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="quantity">Quantidade:</label>
-                <input type="number" id="quantity" min="1" value="1">
-            </div>
+                <div class="form-group">
+                    <label for="quantity">Quantidade:</label>
+                    <input type="number" id="quantity" min="1" value="1" required>
+                </div>
 
-            <button onclick="registerExit()">Registrar Saída</button>
+                <div class="button-group">
+                    <button type="submit">Registrar Saída</button>
+                    <button type="button" class="secondary" onclick="clearForm()">Limpar</button>
+                </div>
+            </form>
         </div>
 
-        <!-- Histórico de Saídas -->
         <div class="card">
             <h2>Últimas Saídas Registradas</h2>
             <table id="exit-history">
@@ -92,30 +93,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>05/06/2024 14:30</td>
-                        <td>Dipirona - 10mg (Via Oral)</td>
-                        <td>Quarto 20 - Leito 01</td>
-                        <td>João Silva</td>
-                    </tr>
-                    <tr>
-                        <td>05/06/2024 14:15</td>
-                        <td>Omeprazol - 5mg (Via Oral)</td>
-                        <td>Quarto 20 - Leito 05</td>
-                        <td>Beatriz Santos</td>
-                    </tr>
-                    <tr>
-                        <td>05/06/2024 13:45</td>
-                        <td>Tramadol - 1mg (Via Intravenosa)</td>
-                        <td>UTI - Leito 07</td>
-                        <td>Paulo Costa</td>
-                    </tr>
-                    <tr>
-                        <td>05/06/2024 13:30</td>
-                        <td>Amoxicilina - 250mg (Via Oral)</td>
-                        <td>Quarto 15 - Leito 03</td>
-                        <td>Maria Oliveira</td>
-                    </tr>
+                    <!-- Preenchido dinamicamente pelo pharmacy.js -->
                 </tbody>
             </table>
         </div>
