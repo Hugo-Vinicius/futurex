@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrack - Rastreabilidade de Medicamentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../medtrack/screenshots/medtrack.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .presentation {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fff;
+        }
+
+        .slide {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .slide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #16a34a);
+        }
+
+        .brand {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            max-width: 300px;
+            margin: 0 auto 3rem;
+            display: block;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin: 2rem 0 1rem;
+            text-align: center;
+        }
+
+        .module-description {
+            font-size: 1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .content {
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            color: #374151;
+        }
+
+        .list-item {
+            background: #f8fafc;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border-left: 5px solid #2563eb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .list-item strong {
+            display: block;
+            color: #1e40af;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .solution {
+            background: #f0fdf4;
+            border-left: 5px solid #16a34a;
+        }
+
+        .solution strong {
+            color: #16a34a;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: #eff6ff;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+            transition: transform 0.2s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #1e40af;
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .screenshot-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screenshot-info {
+            padding: 20px;
+        }
+
+        .screenshot-info h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .screenshot-info p {
+            color: #64748b;
+            font-size: 0.95em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #16a34a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .slide {
+                page-break-after: always;
+                border-radius: 0;
+                box-shadow: none;
+                margin: 0;
+                padding: 40px;
+            }
+
+            .slide:last-child {
+                page-break-after: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+
+            .slide-title {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.5em;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Título -->
+        <div class="slide">
+            <div class="logo">
+                <img src="../medtrack/screenshots/medtrack.png" alt="MedTrack Logo">
+            </div>
+            <h2 class="main-title">Rastreabilidade que salva vidas</h2>
+            <p class="subtitle">Sistema de rastreamento de medicamentos para o Hospital das Clínicas</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Precisão no rastreamento</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">-75%</div>
+                    <div class="stat-label">Redução de erros</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Conformidade</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Interface do Sistema -->
+        <div class="slide">
+            <h2 class="section-title">Interface Intuitiva</h2>
+            <p class="section-description">O MedTrack oferece uma interface moderna e intuitiva, garantindo eficiência e
+                facilidade de uso para todos os profissionais de saúde.</p>
+
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <img src="../medtrack/screenshots/pharmacy.png" alt="Interface da Farmácia"
+                        style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div class="screenshot-info">
+                        <h3 class="module-title">Módulo Farmácia</h3>
+                        <p class="module-description">Controle preciso de estoque e dispensação de medicamentos</p>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="../medtrack/screenshots/bed.png" alt="Interface do Leito"
+                        style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div class="screenshot-info">
+                        <h3 class="module-title">Módulo Leito</h3>
+                        <p class="module-description">Administração segura com confirmação dupla e registro em tempo
+                            real</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Novo Slide: Mais Interfaces -->
+        <div class="slide">
+            <h2 class="section-title">Funcionalidades Principais</h2>
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <img src="../medtrack/screenshots/records.png" alt="Interface do Histórico"
+                        style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div class="screenshot-info">
+                        <h3 class="module-title">Módulo Histórico</h3>
+                        <p class="module-description">Rastreabilidade completa de todas as operações</p>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="../medtrack/screenshots/signup.png" alt="Interface de Cadastros"
+                        style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div class="screenshot-info">
+                        <h3 class="module-title">Módulo de Cadastros</h3>
+                        <p class="module-description">Gerenciamento completo de pacientes e profissionais de saúde</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Desafio -->
+        <div class="slide">
+            <h2 class="section-title">O Desafio</h2>
+            <p class="section-description">
+                A administração segura e eficiente de medicamentos é um desafio crítico que impacta diretamente a
+                qualidade do atendimento e a segurança dos pacientes no Hospital das Clínicas. O <span
+                    class="gradient-text">MedTrack</span> surge como uma solução inovadora para enfrentar esse desafio.
+            </p>
+        </div>
+
+        <!-- Slide 4: Causas -->
+        <div class="slide">
+            <h2 class="section-title">Causas Principais</h2>
+            <div class="content">
+                <div class="list-item">
+                    <strong>Falta de rastreamento eficiente</strong>
+                    <p>Processos manuais e ausência de sistemas adequados comprometem a segurança</p>
+                </div>
+                <div class="list-item">
+                    <strong>Erro humano</strong>
+                    <p>Falhas na verificação e administração devido a processos não automatizados</p>
+                </div>
+                <div class="list-item">
+                    <strong>Comunicação ineficaz</strong>
+                    <p>Falta de integração entre equipes médicas, farmacêuticas e de enfermagem</p>
+                </div>
+                <div class="list-item">
+                    <strong>Sistemas desconectados</strong>
+                    <p>Ferramentas e plataformas isoladas dificultando o fluxo de informações</p>
+                </div>
+                <div class="list-item">
+                    <strong>Armazenamento inadequado</strong>
+                    <p>Controle deficiente de medicamentos e suas condições de conservação</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Consequências -->
+        <div class="slide">
+            <h2 class="section-title">Impactos e Consequências</h2>
+            <div class="grid">
+                <div class="list-item">
+                    <strong class="highlight">Erros de medicação</strong>
+                    <p>Administração incorreta causando riscos aos pacientes</p>
+                </div>
+                <div class="list-item">
+                    <strong class="highlight">Risco à segurança</strong>
+                    <p>Aumento significativo de falhas no processo</p>
+                </div>
+                <div class="list-item">
+                    <strong class="highlight">Custo elevado</strong>
+                    <p>Gastos extras com tratamentos corretivos</p>
+                </div>
+                <div class="list-item">
+                    <strong class="highlight">Impacto no atendimento</strong>
+                    <p>Comprometimento da qualidade do serviço</p>
+                </div>
+                <div class="list-item">
+                    <strong class="highlight">Problemas legais</strong>
+                    <p>Exposição a processos e penalidades</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Soluções -->
+        <div class="slide">
+            <h2 class="section-title">Soluções MedTrack</h2>
+            <div class="content">
+                <div class="list-item solution">
+                    <strong>Sistema digital de rastreamento</strong>
+                    <p>Tecnologia avançada com códigos de barras e RFID para controle preciso</p>
+                </div>
+                <div class="list-item solution">
+                    <strong>Integração completa</strong>
+                    <p>Unificação de prescrição, estoque e administração em uma única plataforma</p>
+                </div>
+                <div class="list-item solution">
+                    <strong>Prontuários eletrônicos inteligentes</strong>
+                    <p>Sistema de alertas e notificações em tempo real</p>
+                </div>
+                <div class="list-item solution">
+                    <strong>Programa de capacitação</strong>
+                    <p>Treinamento contínuo e suporte técnico especializado</p>
+                </div>
+                <div class="list-item solution">
+                    <strong>Dashboard de monitoramento</strong>
+                    <p>Acompanhamento em tempo real e relatórios detalhados</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Benefícios -->
+        <div class="slide">
+            <h2 class="section-title">Benefícios do MedTrack</h2>
+            <div class="grid">
+                <div class="list-item solution">
+                    <strong>Segurança maximizada</strong>
+                    <p>Eliminação virtual de erros de medicação</p>
+                </div>
+                <div class="list-item solution">
+                    <strong>Alta eficiência</strong>
+                    <p>Processos otimizados e tempo reduzido</p>
+                </div>
+                <div class="list-item solution">
+                    <strong>Economia substancial</strong>
+                    <p>Redução significativa de custos operacionais</p>
+                </div>
+                <div class="list-item solution">
+                    <strong>Excelência no atendimento</strong>
+                    <p>Satisfação elevada de pacientes e profissionais</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: QR Code -->
+        <div class="slide">
+            <h2 class="section-title">Acesse o MedTrack</h2>
+            <div style="margin: 2rem auto; max-width: 200px;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://futurex-teal.vercel.app/"
+                    alt="QR Code para acessar o MedTrack" style="width: 100%; height: auto;">
+            </div>
+            <p style="color: #64748b; margin-top: 1rem;">
+                Escaneie o QR Code ou acesse
+                <a href="https://futurex-teal.vercel.app/" target="_blank"
+                    style="color: #1e40af; text-decoration: none; font-weight: 500;">
+                    futurex-teal.vercel.app
+            </p>
+            <p style="color: #64748b; margin-top: 1rem;">
+                usuário: 123456000
+                senha: MedTrack2025
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
